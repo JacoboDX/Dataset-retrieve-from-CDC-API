@@ -69,7 +69,7 @@ offset = row[0]
 limit = 1000
 
 cont = 0
-desc = input('¿Cuántas páginas de 1000 filas quieres descargar? Intro para todas ')
+desc = input('How many 1,000 rows pages want to download? Press Enter for all data ')
 if len(desc) < 1: desc = '0'
 idesc = int(desc)
 
@@ -100,7 +100,7 @@ while True:
             month = textoanumero(fila.get('month'))
             footnote = fila.get('footnote')
         except:
-            print('Formato inesperado')
+            print('Unexpected format')
             continue
   
         cur.execute('''INSERT OR IGNORE INTO metodo (metodo)
