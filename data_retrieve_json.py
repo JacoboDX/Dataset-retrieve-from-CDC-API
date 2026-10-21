@@ -132,6 +132,5 @@ while True:
     cont = cont + 1
     if cont == idesc: break 
     print(urlfinal)
-    # if offset >= 3000: break
 
 conn.commit()
