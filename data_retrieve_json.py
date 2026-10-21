@@ -69,7 +69,7 @@ offset = row[0]
 limit = 1000
 
 cont = 0
-desc = input('How many 1,000 rows pages want to download? Press Enter for all data ')
+desc = input('How many pages of 1,000 rows do you want to download? (Enter = all) ')
 if len(desc) < 1: desc = '0'
 idesc = int(desc)
 
@@ -131,6 +131,6 @@ while True:
     offset = offset + limit
     cont = cont + 1
     if cont == idesc: break 
-    print(urlfinal)
 
+print(urlfinal)
 conn.commit()
