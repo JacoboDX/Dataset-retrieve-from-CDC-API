@@ -42,9 +42,9 @@ for group,ndeaths in data.items():
     color = color + 1
 plt.xticks(range(0,45,3), axis[::3], rotation=90)
 plt.legend()
-plt.title('COVID-19 deaths by age in the USA')
-plt.xlabel('Time')
-plt.ylabel('Deaths')
+plt.title('Monthly COVID-19 deaths by age in the USA. Jan2020 - Sep2023')
+plt.xlabel('Month')
+plt.ylabel('COVID-19 Deaths')
 plt.tight_layout()
 plt.savefig('covid_deaths_by_age.png')
 plt.show()
