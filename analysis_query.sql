@@ -1,4 +1,4 @@
--- Creates a table with monthly COVID-19 deaths by age group
+-- Returns monthly COVID-19 deaths by age group (United States, all sexes)
 SELECT Dataset.year, Dataset.month, age_group.age_group, Dataset.covid_19_deaths
 FROM Dataset
 JOIN age_group ON Dataset.age_group_id = age_group.id
