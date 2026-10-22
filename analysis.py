@@ -8,6 +8,7 @@ with open('analysis_query.sql') as fhand:
 
 cur.execute(sql)
 data = dict()
+axis = list()
 for row in cur:
     # print(row)
     age_group = row[2]
@@ -15,8 +16,16 @@ for row in cur:
     if age_group not in data:
         data[age_group] = list()
     data[age_group].append(deaths)
+    syear = str(row[0])
+    smonth = str(row[1]).zfill(2)
+    date = syear + '-' + smonth
+    if date not in axis:
+        axis.append(date)
 
 
-print(data)
+# print(data)
+# print(axis)
+# print(len(data))
+# print(len(axis))
 
 conn.close()
