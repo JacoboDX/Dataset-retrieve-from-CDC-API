@@ -1,15 +1,17 @@
-# Provisional COVID-19 Deaths by Sex and Age CDC API downloader
+# Provisional COVID-19 Deaths by Sex and Age CDC API downloader and viewer
 ## Description
-Python script that downloads a dataset from CDC via API and stores it in a normalized SQLite database.
+Python scripts that download a dataset from CDC via API and stores it in a normalized SQLite database. It also creates a chart to visualize the data.
 [Dataset](https://data.cdc.gov/National-Center-for-Health-Statistics/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data)
 
-Created for the capstone coursee of the *Python for everybody* specialization (University of Michigan, Coursera).
+Created for the capstone course of the *Python for everybody* specialization (University of Michigan, Coursera).
 ## Requirements
-Created with Python 3.13. Only the standard library is used (no external packages).
+Created with Python 3.13.
 
-Database not included (it is created the first time the script runs).
+Matplotlib library needed for the `analysis.py` script. (Run `pip install matplotlib` to install the library).
+
+Database not included (it is created the first time the `python data_retrieve_json.py` script runs).
 ## Features
-1. On running, asks for two inputs:
+1. On running `python data_retrieve_json.py`, asks for two inputs:
     -   **URL**: press Enter to use this [dataset's endpoint](https://data.cdc.gov/resource/9bhg-hcku.json). Other data.cdc.gov endpoints will only work if they have the same fields.
     -   **Number of pages to download**: the API returns at most 1,000 rows per call, so data is downloaded in pages of 1,000 rows. Press Enter to download all pages.
 2. Creates a db (`cdccovid.sqlite`) with 5 tables. Lookup tables avoid storing the same text many times.
@@ -23,8 +25,19 @@ Database not included (it is created the first time the script runs).
 
 The full dataset contains 137,700 rows (54 states × 3 sexes × 17 age groups × 50 time periods). Data run from January 2020 to September 2023; the CDC stopped updating the dataset in September 2023.
 
+## Analysis
+On running `python analysis.py` it filters all the data in the database to get a chart that shows the COVID-19 monthly deaths by total national (United States column) and by group of age (11 groups, each one in a different color).
+
+The dataset contains two different groups of age distribution that overlap. For this analysis it was chosen a distribution that covers all ages without overlaping.
+
+![Monthly COVID-19 deaths by age in USA 2020-2023](covid_deaths_by_age.png)
+
 ## Usage
 ```
 python data_retrieve_json.py
 ```
 The database is created in the folder from which the script is run.
+```
+python analysis.py
+```
+On running creates a .PNG `covid_deaths_by_age.png` in the folder from which the script is run. It needs `data_retrieve_json.py` to run first in order to work.
