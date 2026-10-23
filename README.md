@@ -1,6 +1,6 @@
 # Provisional COVID-19 Deaths by Sex and Age CDC API downloader and viewer
 ## Description
-Python scripts that download a dataset from CDC via API and stores it in a normalized SQLite database. It also creates a chart to visualize the data.
+Python scripts that download a dataset from CDC via API and store it in a normalized SQLite database. It also creates a chart to visualize the data.
 [Dataset](https://data.cdc.gov/National-Center-for-Health-Statistics/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data)
 
 Created for the capstone course of the *Python for everybody* specialization (University of Michigan, Coursera).
@@ -26,9 +26,9 @@ Database not included (it is created the first time the `python data_retrieve_js
 The full dataset contains 137,700 rows (54 states × 3 sexes × 17 age groups × 50 time periods). Data run from January 2020 to September 2023; the CDC stopped updating the dataset in September 2023.
 
 ## Analysis
-On running `python analysis.py` it filters all the data in the database to get a chart that shows the COVID-19 monthly deaths by total national (United States column) and by group of age (11 groups, each one in a different color).
+On running `python analysis.py` it filters all the data in the database to get a chart that shows the COVID-19 monthly deaths by nationwide total (state = United States) and by group of age (11 groups, each one in a different color).
 
-The dataset contains two different groups of age distribution that overlap. For this analysis it was chosen a distribution that covers all ages without overlaping.
+The dataset contains two different age groups distribution that overlap. For this analysis a distribution was chosen that covers all ages without overlapping.
 
 ![Monthly COVID-19 deaths by age in USA 2020-2023](covid_deaths_by_age.png)
 
